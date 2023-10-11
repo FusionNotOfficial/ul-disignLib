@@ -33,21 +33,30 @@
             // 
             // textBox1
             // 
+            textBox1.BackColor = Color.White;
             textBox1.BorderStyle = BorderStyle.None;
             textBox1.Dock = DockStyle.Fill;
+            textBox1.ForeColor = Color.Black;
             textBox1.Location = new Point(7, 7);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(236, 16);
             textBox1.TabIndex = 0;
+            textBox1.Click += textBox1_Click;
+            textBox1.TextChanged += textBox1_TextChanged;
+            textBox1.Enter += textBox1_Enter;
+            textBox1.KeyPress += textBox1_KeyPress;
+            textBox1.Leave += textBox1_Leave;
+            textBox1.MouseEnter += textBox1_MouseEnter;
+            textBox1.MouseLeave += textBox1_MouseLeave;
             // 
-            // UserControl1
+            // ULTextBox
             // 
             AutoScaleMode = AutoScaleMode.None;
             BackColor = SystemColors.Window;
             Controls.Add(textBox1);
             Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             ForeColor = Color.DimGray;
-            Name = "UserControl1";
+            Name = "ULTextBox";
             Padding = new Padding(7);
             Size = new Size(250, 30);
             ResumeLayout(false);

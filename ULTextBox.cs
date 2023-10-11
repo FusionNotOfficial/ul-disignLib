@@ -1,17 +1,25 @@
-﻿namespace ULControls
+﻿using System.ComponentModel;
+
+namespace ULControls
 {
+    [DefaultEvent("_TextChanged")]
     public partial class ULTextBox : UserControl
     {
-        
+
         private Color borderColor = Color.MediumSlateBlue;
         private int borderSize = 2;
         private bool underlinedStyle = false;
+        private Color borderFocusColor = Color.HotPink;
+        private bool isFocused = false;
 
         public ULTextBox()
         {
-                InitializeComponent();
+            InitializeComponent();
         }
 
+        public event EventHandler _TextChanged;
+
+        [Category("ULControls Code Advance")]
         public Color BorderColor
         {
             get => borderColor;
@@ -21,15 +29,20 @@
                 this.Invalidate();
             }
         }
+        [Category("ULControls Code Advance")]
         public int BorderSize
         {
-            get => borderSize;
+            get
+            {
+                return borderSize;
+            }
             set
             {
                 borderSize = value;
                 this.Invalidate();
             }
         }
+        [Category("ULControls Code Advance")]
         public bool UnderlinedStyle
         {
             get => underlinedStyle;
@@ -39,6 +52,84 @@
                 this.Invalidate();
             }
         }
+        [Category("ULControls Code Advance")]
+        public bool PasswordChar
+        {
+            get { return textBox1.UseSystemPasswordChar; }
+            set { textBox1.UseSystemPasswordChar = value; }
+        }
+        [Category("ULControls Code Advance")]
+        public bool Multiline
+        {
+            get { return textBox1.Multiline; }
+            set { textBox1.Multiline = value; }
+        }
+        [Category("ULControls Code Advance")]
+        public override Color BackColor
+        {
+            get
+            {
+                return base.BackColor;
+            }
+            set
+            {
+                base.BackColor = value;
+                textBox1.BackColor = value;
+            }
+        }
+        [Category("ULControls Code Advance")]
+        public override Color ForeColor
+        {
+            get
+            {
+                return base.ForeColor;
+            }
+            set
+            {
+                base.ForeColor = value;
+                textBox1.ForeColor = value;
+            }
+        }
+        [Category("ULControls Code Advance")]
+        public override Font Font
+        {
+            get
+            {
+                return base.Font;
+            }
+            set
+            {
+                base.Font = value;
+                textBox1.Font = value;
+                if (this.DesignMode)
+                    UpdateControlHeight();
+            }
+        }
+        [Category("ULControls Code Advance")]
+        public string Texts
+        {
+            get
+            {
+                return textBox1.Text;
+            }
+            set
+            {
+                textBox1.Text = value;
+            }
+        }
+        [Category("ULControls Code Advance")]
+        public Color BorderFocusColor
+        {
+            get
+            {
+                return borderFocusColor;
+            }
+            set
+            {
+                borderFocusColor = value;
+            }
+        }
+
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
@@ -48,10 +139,21 @@
             {
                 penBorder.Alignment = System.Drawing.Drawing2D.PenAlignment.Inset;
 
-                if (underlinedStyle)
-                    graph.DrawLine(penBorder, 0, this.Height - 1, this.Width, this.Height - 1);
+                if(!isFocused)
+                {
+                    if (underlinedStyle)
+                        graph.DrawLine(penBorder, 0, this.Height - 1, this.Width, this.Height - 1);
+                    else
+                        graph.DrawRectangle(penBorder, 0, 0, this.Width - 0.5f, this.Height - 0.5f);
+                }
                 else
-                    graph.DrawRectangle(penBorder, 0, 0, this.Width - 0.5f, this.Height - 0.5f);
+                {
+                    penBorder.Color = borderFocusColor;
+                    if (underlinedStyle)
+                        graph.DrawLine(penBorder, 0, this.Height - 1, this.Width, this.Height - 1);
+                    else
+                        graph.DrawRectangle(penBorder, 0, 0, this.Width - 0.5f, this.Height - 0.5f);
+                }
             }
         }
         protected override void OnResize(EventArgs e)
@@ -78,6 +180,44 @@
 
                 this.Height = textBox1.Height + this.Padding.Top + this.Padding.Bottom;
             }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (_TextChanged != null)
+                _TextChanged.Invoke(sender, e);
+        }
+
+        private void textBox1_Click(object sender, EventArgs e)
+        {
+            this.OnClick(e);
+        }
+
+        private void textBox1_MouseEnter(object sender, EventArgs e)
+        {
+            this.OnMouseEnter(e);
+        }
+
+        private void textBox1_MouseLeave(object sender, EventArgs e)
+        {
+            this.OnMouseLeave(e);
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            this.OnKeyPress(e);
+        }
+
+        private void textBox1_Enter(object sender, EventArgs e)
+        {
+            isFocused = true;
+            this.Invalidate();
+        }
+
+        private void textBox1_Leave(object sender, EventArgs e)
+        {
+            isFocused = false;
+            this.Invalidate();
         }
     }
 }

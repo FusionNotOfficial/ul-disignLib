@@ -11,3 +11,4 @@ F:\Visual Studio\TestProjects\ULControls\obj\Debug\net7.0-windows\ULControls.dll
 F:\Visual Studio\TestProjects\ULControls\obj\Debug\net7.0-windows\refint\ULControls.dll
 F:\Visual Studio\TestProjects\ULControls\obj\Debug\net7.0-windows\ULControls.pdb
 F:\Visual Studio\TestProjects\ULControls\obj\Debug\net7.0-windows\ref\ULControls.dll
+F:\Visual Studio\TestProjects\ULControls\obj\Debug\net7.0-windows\ULControls.hui.resources
