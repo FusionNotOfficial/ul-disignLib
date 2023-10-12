@@ -19,7 +19,7 @@ namespace ULControls
 
         public event EventHandler _TextChanged;
 
-        [Category("ULControls Code Advance")]
+        [Category("ULControls")]
         public Color BorderColor
         {
             get => borderColor;
@@ -29,7 +29,7 @@ namespace ULControls
                 this.Invalidate();
             }
         }
-        [Category("ULControls Code Advance")]
+        [Category("ULControls")]
         public int BorderSize
         {
             get
@@ -42,7 +42,7 @@ namespace ULControls
                 this.Invalidate();
             }
         }
-        [Category("ULControls Code Advance")]
+        [Category("ULControls")]
         public bool UnderlinedStyle
         {
             get => underlinedStyle;
@@ -52,19 +52,19 @@ namespace ULControls
                 this.Invalidate();
             }
         }
-        [Category("ULControls Code Advance")]
+        [Category("ULControls")]
         public bool PasswordChar
         {
             get { return textBox1.UseSystemPasswordChar; }
             set { textBox1.UseSystemPasswordChar = value; }
         }
-        [Category("ULControls Code Advance")]
+        [Category("ULControls")]
         public bool Multiline
         {
             get { return textBox1.Multiline; }
             set { textBox1.Multiline = value; }
         }
-        [Category("ULControls Code Advance")]
+        [Category("ULControls")]
         public override Color BackColor
         {
             get
@@ -77,7 +77,7 @@ namespace ULControls
                 textBox1.BackColor = value;
             }
         }
-        [Category("ULControls Code Advance")]
+        [Category("ULControls")]
         public override Color ForeColor
         {
             get
@@ -90,7 +90,7 @@ namespace ULControls
                 textBox1.ForeColor = value;
             }
         }
-        [Category("ULControls Code Advance")]
+        [Category("ULControls")]
         public override Font Font
         {
             get
@@ -105,7 +105,7 @@ namespace ULControls
                     UpdateControlHeight();
             }
         }
-        [Category("ULControls Code Advance")]
+        [Category("ULControls")]
         public string Texts
         {
             get
@@ -117,7 +117,7 @@ namespace ULControls
                 textBox1.Text = value;
             }
         }
-        [Category("ULControls Code Advance")]
+        [Category("ULControls")]
         public Color BorderFocusColor
         {
             get
