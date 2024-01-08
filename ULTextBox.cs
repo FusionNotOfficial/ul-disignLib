@@ -139,7 +139,7 @@ namespace ULControls
             {
                 penBorder.Alignment = System.Drawing.Drawing2D.PenAlignment.Inset;
 
-                if(!isFocused)
+                if (!isFocused)
                 {
                     if (underlinedStyle)
                         graph.DrawLine(penBorder, 0, this.Height - 1, this.Width, this.Height - 1);

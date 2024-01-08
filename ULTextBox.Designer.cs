@@ -39,7 +39,7 @@
             textBox1.ForeColor = Color.Black;
             textBox1.Location = new Point(7, 7);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(236, 16);
+            textBox1.Size = new Size(236, 24);
             textBox1.TabIndex = 0;
             textBox1.Click += textBox1_Click;
             textBox1.TextChanged += textBox1_TextChanged;
